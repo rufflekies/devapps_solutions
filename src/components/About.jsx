@@ -9,7 +9,7 @@ const About = () => {
           {/* Left side with image */}
           <div className="hidden md:block w-full md:w-1/2 justify-center items-center p-6 lg:p-12">
             <img
-              src="/src/assets/Desain tanpa judul.png" // Ganti dengan URL gambar yang relevan
+              src="/hero.png" // Ganti dengan URL gambar yang relevan
               alt="Tim DevApps Solutions"
               className="hidden md:block w-3/4 h-auto object-contain lg:max-w-full animate-floating" // Hide on mobile
             />

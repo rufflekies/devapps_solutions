@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Left: Large Logo */}
         <div className="flex justify-center md:justify-start md:w-1/3">
           <img
-            src="/src/assets/logo.png" // Replace with your logo URL
+            src="/logo.png" // Replace with your logo URL
             alt="DevApps Solutions Logo"
             className="h-40 md:h-60"
           />
@@ -60,7 +60,7 @@ const Footer = () => {
         <div className="w-full md:w-1/3 flex flex-col items-center md:items-end mt-8 md:mt-0 text-center md:text-right">
           <p className="font-montserrat">© Copyright 2024</p>
           <a
-            href="https://tebardigital.com"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 mt-2 font-montserrat"

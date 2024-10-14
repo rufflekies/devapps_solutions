@@ -18,7 +18,7 @@ const App = () => {
       <About />
       <Services />
       <Clients /> 
-      <Pricelist />{/* Tambahkan Clients di sini */}
+      <Pricelist />
       <Contact />
       <Footer />
     </div>

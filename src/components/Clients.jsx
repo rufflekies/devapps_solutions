@@ -5,12 +5,12 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const Clients = () => {
   const clientLogos = [
-    { id: 1, src: "/src/assets/logo.png", alt: "Client 1" },
-    { id: 2, src: "/src/assets/logo.png", alt: "Client 2" },
-    { id: 3, src: "/src/assets/logo.png", alt: "Client 3" },
-    { id: 4, src: "/src/assets/logo.png", alt: "Client 4" },
-    { id: 5, src: "/src/assets/logo.png", alt: "Client 5" },
-    { id: 6, src: "/src/assets/logo.png", alt: "Client 6" },
+    { id: 1, src: "/logo.png", alt: "Client 1" },
+    { id: 2, src: "/logo.png", alt: "Client 2" },
+    { id: 3, src: "/logo.png", alt: "Client 3" },
+    { id: 4, src: "/logo.png", alt: "Client 4" },
+    { id: 5, src: "/logo.png", alt: "Client 5" },
+    { id: 6, src: "/logo.png", alt: "Client 6" },
   ];
 
   // Duplicate logos to create a smoother infinite effect

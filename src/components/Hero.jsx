@@ -51,7 +51,7 @@ const Hero = () => {
             {/* Right Image for Desktop */}
             <div className="pt-20 flex-1 items-center justify-center hidden lg:flex lg:order-last">
                 <img 
-                    src="/src/assets/Desain tanpa judul.png" 
+                    src="/hero.png" 
                     alt="Mobile Mockup" 
                     className="w-3/4 h-auto object-contain animate-floating lg:max-w-full"
                 />

@@ -1,7 +1,7 @@
 import React from 'react';
 import CountUp from 'react-countup';
 
-const PriceList = () => {
+const Pricelist = () => {
   const pricingData = [
     {
       plan: 'Aplikasi Dasar',
@@ -104,4 +104,4 @@ const PriceList = () => {
   );
 };
 
-export default PriceList;
+export default Pricelist;

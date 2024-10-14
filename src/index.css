@@ -1,0 +1,45 @@
+/* src/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar but keep scrolling */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+/* Hide scrollbar for webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for other browsers (Firefox, etc.) */
+
+/* General dark mode styles */
+body.dark {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text color */
+}
+
+/* Specific styles for dark mode */
+body.dark .bg-white {
+    background-color: #1f1f1f; /* Dark background for elements */
+}
+
+/* Update gray-100 to gray-800 in dark mode */
+body.dark .bg-gray-100 {
+    background-color: #4b5563; /* Tailwind gray-800 */
+}
+
+/* Update text color for links and other elements in dark mode */
+body.dark a {
+    color: #ffffff; /* White text for links */
+}
+
+/* Additional classes to handle specific elements */
+body.dark .text-black {
+    color: #ffffff !important; /* Ensure text-black class turns white */
+}

@@ -19,7 +19,7 @@ const Hero = () => {
                 <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 pb-12 lg:hidden">
                     <div className="flex justify-center mb-4 py-10"> {/* Add padding here for mobile */}
                         <img 
-                            src="/src/assets/Desain tanpa judul.png" 
+                            src="/hero.png" 
                             alt="Mobile Mockup" 
                             className="w-3/4 h-auto object-contain animate-floating" 
                         />

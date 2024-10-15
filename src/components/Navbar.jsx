@@ -115,45 +115,36 @@ const Navbar = () => {
   className="fixed bottom-0 left-0 w-full rounded-3xl bg-white shadow-top py-3 flex justify-around items-center lg:hidden transition-all duration-300 ease-in-out"
   style={{
     zIndex: 1000,
-    height: "60px", // Adjust this value as needed
-    paddingBottom: "30px", // Adjust padding if necessary
+    height: "60px",
+    paddingBottom: "30px",
   }}
 >
-  {/* Navigation with active/hover effect and pop-out semi-circular shapes */}
   {[
-    { section: "#hero", icon: <AiOutlineHome /> },
-    { section: "#about", icon: <AiOutlineInfoCircle /> },
-    { section: "#services", icon: <AiOutlineAppstore /> },
-    { section: "#pricelist", icon: <AiOutlineFile /> },
-    { section: "#contact", icon: <AiOutlineMail /> },
-  ].map(({ section, icon }) => (
+    { section: "#hero", icon: <AiOutlineHome />, label: "Beranda" },
+    { section: "#about", icon: <AiOutlineInfoCircle />, label: "Tentang Kami" },
+    { section: "#services", icon: <AiOutlineAppstore />, label: "Layanan" },
+    { section: "#pricelist", icon: <AiOutlineFile />, label: "Harga" },
+    { section: "#contact", icon: <AiOutlineMail />, label: "Kontak" },
+  ].map(({ section, icon, label }) => (
     <a
       key={section}
       href={section}
       className={`flex flex-col items-center group transition-all duration-300 relative ${
         isActive(section) ? "text-blue-500" : "text-gray-500"
       }`}
+      aria-label={label} // Tambahkan teks alternatif untuk aksesibilitas
     >
       {isActive(section) && (
         <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
           {React.cloneElement(icon, { className: "text-2xl transition-transform duration-300" })}
         </div>
       )}
-      {/* Hapus bagian di bawah ini untuk menghilangkan teks */}
-      {/* {React.cloneElement(icon, {
-        className: `text-2xl ${
-          isActive(section) ? "text-blue-500" : "text-gray-500"
-        } ${isActive(section) ? "" : "mt-2"}`,
-      })} */}
       {React.cloneElement(icon, {
-        className: `text-2xl ${
-          isActive(section) ? "text-blue-500" : "text-gray-500"
-        }`,
+        className: `text-2xl ${isActive(section) ? "text-blue-500" : "text-gray-500"}`,
       })}
     </a>
   ))}
 </div>
-
 
       {/* Floating Dark Mode Toggle Button for Mobile */}
       <button

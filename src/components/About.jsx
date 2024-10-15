@@ -1,5 +1,5 @@
-import React from 'react';
-import CountUp from 'react-countup';
+import React from "react";
+import CountUp from "react-countup";
 
 const About = () => {
   return (
@@ -9,7 +9,7 @@ const About = () => {
           {/* Left side with image */}
           <div className="hidden md:block w-full md:w-1/2 justify-center items-center p-6 lg:p-12">
             <img
-              src="/hero.png" // Ganti dengan URL gambar yang relevan
+              src="/hero.webp" // Ganti dengan URL gambar yang relevan
               alt="Tim DevApps Solutions"
               className="hidden md:block w-3/4 h-auto object-contain lg:max-w-full animate-floating" // Hide on mobile
             />
@@ -17,9 +17,14 @@ const About = () => {
 
           {/* Right side with content */}
           <div className="w-full md:w-1/2 p-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 lg:mt-8">Siapa Kami</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 lg:mt-8">
+              Siapa Kami
+            </h2>
             <p className="text-base md:text-lg mb-6">
-            "DevApps Solutions berdiri untuk mewujudkan ide inovatif Anda menjadi aplikasi mobile. Dengan fokus pada pengembangan melalui Android Studio, tim kami yang berpengalaman siap memberikan solusi terbaik untuk kebutuhan Anda."
+              "DevApps Solutions berdiri untuk mewujudkan ide inovatif Anda
+              menjadi aplikasi mobile. Dengan fokus pada pengembangan melalui
+              Android Studio, tim kami yang berpengalaman siap memberikan solusi
+              terbaik untuk kebutuhan Anda."
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div className="flex flex-col items-center">

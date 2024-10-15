@@ -1,16 +1,16 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css'; 
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Clients = () => {
   const clientLogos = [
-    { id: 1, src: "/logo.png", alt: "Client 1" },
-    { id: 2, src: "/logo.png", alt: "Client 2" },
-    { id: 3, src: "/logo.png", alt: "Client 3" },
-    { id: 4, src: "/logo.png", alt: "Client 4" },
-    { id: 5, src: "/logo.png", alt: "Client 5" },
-    { id: 6, src: "/logo.png", alt: "Client 6" },
+    { id: 1, src: "/logo.webp", alt: "Client 1" },
+    { id: 2, src: "/logo.webp", alt: "Client 2" },
+    { id: 3, src: "/logo.webp", alt: "Client 3" },
+    { id: 4, src: "/logo.webp", alt: "Client 4" },
+    { id: 5, src: "/logo.webp", alt: "Client 5" },
+    { id: 6, src: "/logo.webp", alt: "Client 6" },
   ];
 
   // Duplicate logos to create a smoother infinite effect
@@ -53,16 +53,18 @@ const Clients = () => {
       <div className="w-full">
         <Slider {...settings}>
           {logosForSlider.map((logo) => (
-            <div key={logo.id} className="p-2"> {/* Adjusted padding for tighter spacing */}
-              <img 
-          key={logo.id} // Pastikan untuk menambahkan key yang unik
-          src={logo.src} 
-          alt={logo.alt} 
-          className="h-36 w-auto mx-auto"
-          loading="lazy" // Menambahkan lazy loading di sini
-          width="144" // Ganti dengan ukuran yang sesuai
-          height="144" // Ganti dengan ukuran yang sesuai
-        />
+            <div key={logo.id} className="p-2">
+              {" "}
+              {/* Adjusted padding for tighter spacing */}
+              <img
+                key={logo.id} // Pastikan untuk menambahkan key yang unik
+                src={logo.src}
+                alt={logo.alt}
+                className="h-36 w-auto mx-auto"
+                loading="lazy" // Menambahkan lazy loading di sini
+                width="144" // Ganti dengan ukuran yang sesuai
+                height="144" // Ganti dengan ukuran yang sesuai
+              />
             </div>
           ))}
         </Slider>

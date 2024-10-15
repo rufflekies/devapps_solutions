@@ -1,15 +1,14 @@
-import React from 'react';
-import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
+import React from "react";
+import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer id="footer" className="bg-gray-100 py-10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4">
-        
         {/* Left: Large Logo */}
         <div className="flex justify-center md:justify-start md:w-1/3">
           <img
-            src="/logo.png" // Replace with your logo URL
+            src="/logo.webp" // Replace with your logo URL
             alt="DevApps Solutions Logo"
             className="h-40 md:h-60"
           />
@@ -22,8 +21,10 @@ const Footer = () => {
             DevApps Solutions
           </h2>
           <p className="mt-1 text-sm md:text-lg font-montserrat">
-            Jl. Rusunawa Dabag<br />
-            Condongcatur, Depok, Sleman<br />
+            Jl. Rusunawa Dabag
+            <br />
+            Condongcatur, Depok, Sleman
+            <br />
             Daerah Istimewa Yogyakarta 55283
           </p>
 

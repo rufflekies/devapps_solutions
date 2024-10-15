@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaMobileAlt, FaCode, FaTools, FaChartLine } from 'react-icons/fa';
+import React from "react";
+import { FaMobileAlt, FaCode, FaTools, FaChartLine } from "react-icons/fa";
 
 const featuresData = [
   {
@@ -38,9 +38,7 @@ const Services = () => {
               key={index}
               className="snap-center transition-transform transform hover:scale-105 flex-none w-72 lg:w-auto bg-white p-6 rounded-3xl shadow-lg flex flex-col items-center"
             >
-              <div className="flex justify-center mb-4">
-                {feature.icon}
-              </div>
+              <div className="flex justify-center mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mt-2 mb-2 text-center font-montserrat">
                 {feature.title}
               </h3>

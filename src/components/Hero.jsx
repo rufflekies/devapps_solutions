@@ -4,9 +4,9 @@ const Hero = () => {
     return (
         <section id="hero" className="bg-gray-100 relative overflow-hidden flex flex-col lg:flex-row h-screen">
             {/* Left Content */}
-            <div className="flex-1 flex flex-col justify-center p-6 lg:p-24">
+            <div className="flex-1 flex flex-col justify-center px-6 lg:p-24">
                 {/* Title with mobile-specific padding and centered text */}
-                <h1 className="text-4xl pt-4 font-bold sm:text-5xl md:text-6xl font-montserrat lg:pb-0 text-center lg:text-left">
+                <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl font-montserrat lg:pb-0 text-center lg:text-left">
                     “DevApps Solutions: Ubah Idemu Jadi Kenyataan"
                 </h1>
 

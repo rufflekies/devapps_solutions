@@ -192,7 +192,7 @@ const Navbar = () => {
       {/* Floating Dark Mode Toggle Button for Mobile */}
       <button
         onClick={toggleDarkMode}
-        className="fixed bottom-20 left-4 md:hidden bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50"
+        className="fixed top-4 right-4 md:hidden bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50"
       >
         {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
       </button>

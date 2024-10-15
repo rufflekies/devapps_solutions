@@ -11,8 +11,8 @@ const Hero = () => {
                 </h1>
 
                 {/* Image above buttons in mobile view */}
-                <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 pb-12 lg:hidden">
-                    <div className="flex justify-center mb-4 py-10"> {/* Adjust padding for mobile */}
+                <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 lg:hidden">
+                    <div className="flex justify-center pt-2 "> {/* Adjust padding for mobile */}
                         <img 
                             src="/hero.png" 
                             alt="Mobile Mockup" 

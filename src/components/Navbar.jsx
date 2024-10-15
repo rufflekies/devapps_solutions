@@ -86,46 +86,18 @@ const Navbar = () => {
           zIndex: 1000,
         }}
       >
-        <a
-          href="#hero"
-          className={`hover:text-blue-500 ${
-            isScrolled || isDarkMode ? "text-blue-500" : "text-black"
-          } mx-4 font-semibold`}
-        >
-          Home
-        </a>
-        <a
-          href="#about"
-          className={`hover:text-blue-500 ${
-            isScrolled || isDarkMode ? "text-blue-500" : "text-black"
-          } mx-4 font-semibold`}
-        >
-          About
-        </a>
-        <a
-          href="#services"
-          className={`hover:text-blue-500 ${
-            isScrolled || isDarkMode ? "text-blue-500" : "text-black"
-          } mx-4 font-semibold`}
-        >
-          Services
-        </a>
-        <a
-          href="#pricelist"
-          className={`hover:text-blue-500 ${
-            isScrolled || isDarkMode ? "text-blue-500" : "text-black"
-          } mx-4 font-semibold`}
-        >
-          PriceList
-        </a>
-        <a
-          href="#contact"
-          className={`hover:text-blue-500 ${
-            isScrolled || isDarkMode ? "text-blue-500" : "text-black"
-          } mx-4 font-semibold`}
-        >
-          Contact
-        </a>
+        {["Home", "About", "Services", "PriceList", "Contact"].map((text, index) => (
+          <a
+            key={text}
+            href={`#${text.toLowerCase()}`}
+            className={`hover:text-blue-500 ${
+              isScrolled || isDarkMode ? "text-blue-500" : "text-black"
+            } mx-4 font-semibold`}
+            aria-label={`Navigasi ke bagian ${text}`} // Menambahkan teks alternatif untuk aksesibilitas
+          >
+            {text}
+          </a>
+        ))}
 
         {/* Dark Mode Toggle Button for Desktop */}
         <button
@@ -138,42 +110,50 @@ const Navbar = () => {
       </div>
 
       {/* Mobile View: Instagram-style Bottom Navigation Bar without text labels */}
-      <div
-        className="fixed bottom-0 left-0 w-full rounded-3xl bg-white shadow-top py-3 flex justify-around items-center lg:hidden transition-all duration-300 ease-in-out"
-        style={{
-          zIndex: 1000,
-          height: "60px", // Adjust this value as needed
-          paddingBottom: "30px", // Adjust padding if necessary
-        }}
-      >
-        {/* Navigation with active/hover effect and pop-out semi-circular shapes */}
-        {[
-          { section: "#hero", icon: <AiOutlineHome /> },
-          { section: "#about", icon: <AiOutlineInfoCircle /> },
-          { section: "#services", icon: <AiOutlineAppstore /> },
-          { section: "#pricelist", icon: <AiOutlineFile /> },
-          { section: "#contact", icon: <AiOutlineMail /> },
-        ].map(({ section, icon }) => (
-          <a
-            key={section}
-            href={section}
-            className={`flex flex-col items-center group transition-all duration-300 relative ${
-              isActive(section) ? "text-blue-500" : "text-gray-500"
-            }`}
-          >
-            {isActive(section) && (
-              <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-                {React.cloneElement(icon, { className: "text-2xl transition-transform duration-300" })}
-              </div>
-            )}
-            {React.cloneElement(icon, {
-              className: `text-2xl ${
-                isActive(section) ? "text-blue-500" : "text-gray-500"
-              } ${isActive(section) ? "" : "mt-2"}`,
-            })}
-          </a>
-        ))}
-      </div>
+{/* Mobile View: Instagram-style Bottom Navigation Bar without text labels */}
+<div
+  className="fixed bottom-0 left-0 w-full rounded-3xl bg-white shadow-top py-3 flex justify-around items-center lg:hidden transition-all duration-300 ease-in-out"
+  style={{
+    zIndex: 1000,
+    height: "60px", // Adjust this value as needed
+    paddingBottom: "30px", // Adjust padding if necessary
+  }}
+>
+  {/* Navigation with active/hover effect and pop-out semi-circular shapes */}
+  {[
+    { section: "#hero", icon: <AiOutlineHome /> },
+    { section: "#about", icon: <AiOutlineInfoCircle /> },
+    { section: "#services", icon: <AiOutlineAppstore /> },
+    { section: "#pricelist", icon: <AiOutlineFile /> },
+    { section: "#contact", icon: <AiOutlineMail /> },
+  ].map(({ section, icon }) => (
+    <a
+      key={section}
+      href={section}
+      className={`flex flex-col items-center group transition-all duration-300 relative ${
+        isActive(section) ? "text-blue-500" : "text-gray-500"
+      }`}
+    >
+      {isActive(section) && (
+        <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
+          {React.cloneElement(icon, { className: "text-2xl transition-transform duration-300" })}
+        </div>
+      )}
+      {/* Hapus bagian di bawah ini untuk menghilangkan teks */}
+      {/* {React.cloneElement(icon, {
+        className: `text-2xl ${
+          isActive(section) ? "text-blue-500" : "text-gray-500"
+        } ${isActive(section) ? "" : "mt-2"}`,
+      })} */}
+      {React.cloneElement(icon, {
+        className: `text-2xl ${
+          isActive(section) ? "text-blue-500" : "text-gray-500"
+        }`,
+      })}
+    </a>
+  ))}
+</div>
+
 
       {/* Floating Dark Mode Toggle Button for Mobile */}
       <button

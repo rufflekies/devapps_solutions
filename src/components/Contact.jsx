@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <section className="flex items-center bg-gray-100 justify-center p-4 md:p-16">
+    <section id="contact" className="flex items-center bg-gray-100 justify-center p-4 md:p-16">
       <div className="p-8 bg-gradient-to-r from-blue-500 to-blue-700 rounded-3xl shadow-lg w-full max-w-6xl mx-4 text-center">
         <h1 className="text-3xl md:text-4xl text-white mb-4 font-montserrat font-bold">
           Bangun Aplikasi Impian Anda Bersama DevApps Solution!

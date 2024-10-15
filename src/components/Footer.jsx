@@ -3,7 +3,7 @@ import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-10">
+    <footer id="footer" className="bg-gray-100 py-10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4">
         
         {/* Left: Large Logo */}

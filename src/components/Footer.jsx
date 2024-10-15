@@ -37,6 +37,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500"
+              aria-label="Instagram DevApps Solutions"
             >
               <FaInstagram className="h-8 w-8 bg-white rounded-full p-2 shadow-md hover:bg-blue-50" />
             </a>
@@ -45,6 +46,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500"
+              aria-label="YouTube DevApps Solutions"
             >
               <FaYoutube className="h-8 w-8 bg-white rounded-full p-2 shadow-md hover:bg-blue-50" />
             </a>
@@ -55,10 +57,11 @@ const Footer = () => {
         <div className="w-full md:w-1/3 flex flex-col items-center md:items-end mt-8 md:mt-0 text-center md:text-right">
           <p className="font-montserrat">© Copyright 2024</p>
           <a
-            href=""
+            href="#"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 mt-2 font-montserrat"
+            aria-label="DevApps Solutions Homepage"
           >
             DevApps Solutions
           </a>

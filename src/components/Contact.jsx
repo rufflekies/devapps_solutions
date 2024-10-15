@@ -22,7 +22,7 @@ const Contact = () => {
         <div>
           <a
             href="mailto:info@devappssolution.com"
-            className="transition-transform transform hover:scale-105 inline-block px-6 py-3 text-lg font-semibold text-white bg-green-600 rounded-full shadow-lg hover:bg-green-700 font-montserrat"
+            className="transition-transform transform hover:scale-105 inline-block px-6 py-3 text-lg font-semibold text-white bg-green-800 rounded-full shadow-lg hover:bg-green-900 font-montserrat"
           >
             Hubungi ↗
           </a>

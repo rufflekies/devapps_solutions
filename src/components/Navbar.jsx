@@ -13,7 +13,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
-  const [activeSection, setActiveSection] = useState("#home");
+  const [activeSection, setActiveSection] = useState("#hero");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
       setIsScrolled(scrollTop > 50);
       setShowScrollToTop(scrollTop > 300);
 
-      const sections = ["#home", "#about", "#services", "#pricelist", "#contact"];
+      const sections = ["#hero", "#about", "#services", "#pricelist", "#contact"];
       const sectionOffsets = sections.map((section) => {
         const element = document.querySelector(section);
         return element ? element.offsetTop - 50 : 0;
@@ -73,7 +73,7 @@ const Navbar = () => {
         style={{ marginTop: "1rem", fontFamily: "Montserrat, sans-serif", zIndex: 1000 }}
       >
         <a
-          href="#home"
+          href="#hero"
           className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"
             } mx-4 font-semibold`}
         >
@@ -128,17 +128,15 @@ const Navbar = () => {
 >
   {/* Navigation with active/hover effect and pop-out semi-circular shapes */}
   <a
-  href="#home"
-  className={`flex flex-col items-center group transition-all duration-300 relative ${isActive("#home") ? "text-blue-500" : "text-gray-500"}`}
+  href="#hero"
+  className={`flex flex-col items-center group transition-all duration-300 relative ${isActive("#hero") ? "text-blue-500" : "text-gray-500"}`}
 >
-  {isActive("#home") && (
+  {isActive("#hero") && (
     <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
       <AiOutlineHome className="text-2xl transition-transform duration-300" />
     </div>
   )}
-  <AiOutlineHome
-    className={`text-2xl ${isActive("#home") ? "text-blue-500" : "text-gray-500"} ${isActive("#home") ? "" : "mt-2"} group-hover:border-4 group-hover:border-blue-500 group-hover:opacity-50 transition-all duration-300`}
-  />
+  <AiOutlineHome className={`text-2xl ${isActive("#hero") ? "text-blue-500" : "text-gray-500"} ${isActive("#hero") ? "" : "mt-2"}`} />
 </a>
 
 <a
@@ -150,9 +148,7 @@ const Navbar = () => {
       <AiOutlineInfoCircle className="text-2xl transition-transform duration-300" />
     </div>
   )}
-  <AiOutlineInfoCircle
-    className={`text-2xl ${isActive("#about") ? "text-blue-500" : "text-gray-500"} ${isActive("#about") ? "" : "mt-2"} group-hover:border-4 group-hover:border-blue-500 group-hover:opacity-50 transition-all duration-300`}
-  />
+  <AiOutlineInfoCircle className={`text-2xl ${isActive("#about") ? "text-blue-500" : "text-gray-500"} ${isActive("#about") ? "" : "mt-2"}`} />
 </a>
 
 <a
@@ -164,9 +160,7 @@ const Navbar = () => {
       <AiOutlineAppstore className="text-2xl transition-transform duration-300" />
     </div>
   )}
-  <AiOutlineAppstore
-    className={`text-2xl ${isActive("#services") ? "text-blue-500" : "text-gray-500"} ${isActive("#services") ? "" : "mt-2"} group-hover:border-4 group-hover:border-blue-500 group-hover:opacity-50 transition-all duration-300`}
-  />
+  <AiOutlineAppstore className={`text-2xl ${isActive("#services") ? "text-blue-500" : "text-gray-500"} ${isActive("#services") ? "" : "mt-2"}`} />
 </a>
 
 <a
@@ -178,9 +172,7 @@ const Navbar = () => {
       <AiOutlineFile className="text-2xl transition-transform duration-300" />
     </div>
   )}
-  <AiOutlineFile
-    className={`text-2xl ${isActive("#pricelist") ? "text-blue-500" : "text-gray-500"} ${isActive("#pricelist") ? "" : "mt-2"} group-hover:border-4 group-hover:border-blue-500 group-hover:opacity-50 transition-all duration-300`}
-  />
+  <AiOutlineFile className={`text-2xl ${isActive("#pricelist") ? "text-blue-500" : "text-gray-500"} ${isActive("#pricelist") ? "" : "mt-2"}`} />
 </a>
 
 <a
@@ -192,9 +184,7 @@ const Navbar = () => {
       <AiOutlineMail className="text-2xl transition-transform duration-300" />
     </div>
   )}
-  <AiOutlineMail
-    className={`text-2xl ${isActive("#contact") ? "text-blue-500" : "text-gray-500"} ${isActive("#contact") ? "" : "mt-2"} group-hover:border-4 group-hover:border-blue-500 group-hover:opacity-50 transition-all duration-300`}
-  />
+  <AiOutlineMail className={`text-2xl ${isActive("#contact") ? "text-blue-500" : "text-gray-500"} ${isActive("#contact") ? "" : "mt-2"}`} />
 </a>
 
 </div>
@@ -209,13 +199,13 @@ const Navbar = () => {
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-20 right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg z-50"
-        >
-          <AiOutlineArrowUp />
-        </button>
-      )}
+  <button
+    onClick={scrollToTop}
+    className="fixed bottom-20 right-4 bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50 transition-all duration-300 ease-in-out"
+  >
+    <AiOutlineArrowUp />
+  </button>
+)}
     </nav>
   );
 };

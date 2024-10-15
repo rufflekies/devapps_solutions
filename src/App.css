@@ -4,7 +4,24 @@
   padding: 2rem;
   text-align: center;
 }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Ganti impor font dengan @font-face */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Tambahkan file font lain sesuai kebutuhan */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ... Lanjutkan untuk berat/font style lainnya ... */
 
 body {
   font-family: 'Montserrat', sans-serif;

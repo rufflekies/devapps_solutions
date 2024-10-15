@@ -37,7 +37,7 @@ const About = () => {
               ref={imgRef}
               data-src="/hero.webp" // Menggunakan data-src untuk lazy load
               alt="Tim DevApps Solutions"
-              className="hidden w-3/4 h-auto object-contain lg:max-w-full animate-floating"
+              className="w-3/4 h-auto object-contain lg:max-w-full animate-floating"
               loading="lazy" // Menandakan pemuatan lambat
             />
           </div>

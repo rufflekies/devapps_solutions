@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import CountUp from "react-countup";
 
 const About = () => {
+  const imgRef = useRef(null); // Reference untuk gambar
+
+  useEffect(() => {
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src; // Memuat gambar saat terlihat
+          img.onload = () => img.classList.remove('hidden'); // Menghapus kelas hidden setelah gambar dimuat
+          imgObserver.unobserve(img); // Menghentikan pengamatan pada gambar
+        }
+      });
+    });
+
+    if (imgRef.current) {
+      imgObserver.observe(imgRef.current); // Memulai pengamatan gambar
+    }
+
+    return () => {
+      if (imgRef.current) {
+        imgObserver.unobserve(imgRef.current); // Menghentikan pengamatan saat komponen dibongkar
+      }
+    };
+  }, []);
+
   return (
     <section id="about" className="bg-gray-100 font-montserrat">
       <div className="max-w-6xl mx-auto p-4 px-4 sm:px-6 lg:px-8">
         <div className="bg-white shadow-lg rounded-3xl overflow-hidden flex flex-col md:flex-row items-center md:items-start">
           {/* Left side with image */}
-          <div className="hidden md:block w-full md:w-1/2 justify-center items-center p-6 lg:p-12">
+          <div className="hidden md:flex justify-center items-center p-6 lg:p-12 w-full md:w-1/2">
             <img
-              src="/hero.webp" // Ganti dengan URL gambar yang relevan
+              ref={imgRef}
+              data-src="/hero.webp" // Menggunakan data-src untuk lazy load
               alt="Tim DevApps Solutions"
-              className="hidden md:block w-3/4 h-auto object-contain lg:max-w-full animate-floating" // Hide on mobile
+              className="hidden w-3/4 h-auto object-contain lg:max-w-full animate-floating"
+              loading="lazy" // Menandakan pemuatan lambat
             />
           </div>
 

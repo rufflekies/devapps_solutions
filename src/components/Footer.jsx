@@ -8,9 +8,11 @@ const Footer = () => {
         {/* Left: Large Logo */}
         <div className="flex justify-center md:justify-start md:w-1/3">
           <img
-            src="/logo.webp" // Replace with your logo URL
+            src="/logo.webp" // Ganti dengan URL logo Anda
             alt="DevApps Solutions Logo"
-            className="h-40 md:h-60"
+            width={240} // Tentukan lebar gambar (sesuaikan dengan ukuran asli)
+            height={160} // Tentukan tinggi gambar (sesuaikan dengan ukuran asli)
+            className="h-auto md:h-60" // Gunakan h-auto agar tidak terdistorsi
           />
         </div>
 

@@ -2,15 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <link rel="icon" type="image/png" href="/logo.png" /> <!-- Changed to image/png for clarity -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preload" href="/hero.png" as="image">
-
     <title>DevApps Solutions</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx" defer></script> <!-- Tambahkan defer di sini -->
+    
+    <!-- Use modern script with fallback for older browsers -->
+    <script type="module" src="/src/main.jsx" defer></script>
+    <script nomodule src="/src/legacy-script.js"></script> <!-- Fallback for browsers that do not support modules -->
   </body>
 </html>

@@ -131,6 +131,7 @@ const Navbar = () => {
         <button
           onClick={toggleDarkMode}
           className="ml-4 bg-white rounded-full flex items-center justify-center"
+          aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
         >
           {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
         </button>
@@ -146,101 +147,39 @@ const Navbar = () => {
         }}
       >
         {/* Navigation with active/hover effect and pop-out semi-circular shapes */}
-        <a
-          href="#hero"
-          className={`flex flex-col items-center group transition-all duration-300 relative ${
-            isActive("#hero") ? "text-blue-500" : "text-gray-500"
-          }`}
-        >
-          {isActive("#hero") && (
-            <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-              <AiOutlineHome className="text-2xl transition-transform duration-300" />
-            </div>
-          )}
-          <AiOutlineHome
-            className={`text-2xl ${
-              isActive("#hero") ? "text-blue-500" : "text-gray-500"
-            } ${isActive("#hero") ? "" : "mt-2"}`}
-          />
-        </a>
-
-        <a
-          href="#about"
-          className={`flex flex-col items-center group transition-all duration-300 relative ${
-            isActive("#about") ? "text-blue-500" : "text-gray-500"
-          }`}
-        >
-          {isActive("#about") && (
-            <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-              <AiOutlineInfoCircle className="text-2xl transition-transform duration-300" />
-            </div>
-          )}
-          <AiOutlineInfoCircle
-            className={`text-2xl ${
-              isActive("#about") ? "text-blue-500" : "text-gray-500"
-            } ${isActive("#about") ? "" : "mt-2"}`}
-          />
-        </a>
-
-        <a
-          href="#services"
-          className={`flex flex-col items-center group transition-all duration-300 relative ${
-            isActive("#services") ? "text-blue-500" : "text-gray-500"
-          }`}
-        >
-          {isActive("#services") && (
-            <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-              <AiOutlineAppstore className="text-2xl transition-transform duration-300" />
-            </div>
-          )}
-          <AiOutlineAppstore
-            className={`text-2xl ${
-              isActive("#services") ? "text-blue-500" : "text-gray-500"
-            } ${isActive("#services") ? "" : "mt-2"}`}
-          />
-        </a>
-
-        <a
-          href="#pricelist"
-          className={`flex flex-col items-center group transition-all duration-300 relative ${
-            isActive("#pricelist") ? "text-blue-500" : "text-gray-500"
-          }`}
-        >
-          {isActive("#pricelist") && (
-            <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-              <AiOutlineFile className="text-2xl transition-transform duration-300" />
-            </div>
-          )}
-          <AiOutlineFile
-            className={`text-2xl ${
-              isActive("#pricelist") ? "text-blue-500" : "text-gray-500"
-            } ${isActive("#pricelist") ? "" : "mt-2"}`}
-          />
-        </a>
-
-        <a
-          href="#contact"
-          className={`flex flex-col items-center group transition-all duration-300 relative ${
-            isActive("#contact") ? "text-blue-500" : "text-gray-500"
-          }`}
-        >
-          {isActive("#contact") && (
-            <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-              <AiOutlineMail className="text-2xl transition-transform duration-300" />
-            </div>
-          )}
-          <AiOutlineMail
-            className={`text-2xl ${
-              isActive("#contact") ? "text-blue-500" : "text-gray-500"
-            } ${isActive("#contact") ? "" : "mt-2"}`}
-          />
-        </a>
+        {[
+          { section: "#hero", icon: <AiOutlineHome /> },
+          { section: "#about", icon: <AiOutlineInfoCircle /> },
+          { section: "#services", icon: <AiOutlineAppstore /> },
+          { section: "#pricelist", icon: <AiOutlineFile /> },
+          { section: "#contact", icon: <AiOutlineMail /> },
+        ].map(({ section, icon }) => (
+          <a
+            key={section}
+            href={section}
+            className={`flex flex-col items-center group transition-all duration-300 relative ${
+              isActive(section) ? "text-blue-500" : "text-gray-500"
+            }`}
+          >
+            {isActive(section) && (
+              <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
+                {React.cloneElement(icon, { className: "text-2xl transition-transform duration-300" })}
+              </div>
+            )}
+            {React.cloneElement(icon, {
+              className: `text-2xl ${
+                isActive(section) ? "text-blue-500" : "text-gray-500"
+              } ${isActive(section) ? "" : "mt-2"}`,
+            })}
+          </a>
+        ))}
       </div>
 
       {/* Floating Dark Mode Toggle Button for Mobile */}
       <button
         onClick={toggleDarkMode}
         className="fixed top-4 right-4 md:hidden bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50"
+        aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
       >
         {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
       </button>
@@ -250,6 +189,7 @@ const Navbar = () => {
         <button
           onClick={scrollToTop}
           className="fixed bottom-20 right-4 bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50 transition-all duration-300 ease-in-out"
+          aria-label="Scroll to top"
         >
           <AiOutlineArrowUp />
         </button>

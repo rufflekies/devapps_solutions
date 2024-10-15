@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Social Media Icons */}
           <div className="flex justify-center md:justify-start space-x-4 mt-4">
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/raflii1i1i"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500"
@@ -41,15 +41,7 @@ const Footer = () => {
               <FaInstagram className="h-8 w-8 bg-white rounded-full p-2 shadow-md hover:bg-blue-50" />
             </a>
             <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500"
-            >
-              <FaFacebookF className="h-8 w-8 bg-white rounded-full p-2 shadow-md hover:bg-blue-50" />
-            </a>
-            <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@raflii1i1i"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500"

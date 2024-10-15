@@ -80,7 +80,10 @@ const Pricelist = () => {
                     ))}
                   </ul>
                 </div>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition-colors w-full mt-4">
+                <button 
+                  className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full mt-4"
+                  aria-label={`Pilih paket ${plan.plan}`}
+                >
                   Pilih Paket
                 </button>
               </div>
@@ -117,7 +120,10 @@ const Pricelist = () => {
                   ))}
                 </ul>
               </div>
-              <button className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition-colors w-full">
+              <button 
+                className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full"
+                aria-label={`Pilih paket ${plan.plan}`}
+              >
                 Pilih Paket
               </button>
             </div>

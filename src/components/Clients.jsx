@@ -55,11 +55,14 @@ const Clients = () => {
           {logosForSlider.map((logo) => (
             <div key={logo.id} className="p-2"> {/* Adjusted padding for tighter spacing */}
               <img 
-                src={logo.src} 
-                alt={logo.alt} 
-                className="h-36 w-auto mx-auto" // Increased height of logos
-                style={{ objectFit: 'contain' }} // Ensure the logos maintain aspect ratio
-              />
+          key={logo.id} // Pastikan untuk menambahkan key yang unik
+          src={logo.src} 
+          alt={logo.alt} 
+          className="h-36 w-auto mx-auto"
+          loading="lazy" // Menambahkan lazy loading di sini
+          width="144" // Ganti dengan ukuran yang sesuai
+          height="144" // Ganti dengan ukuran yang sesuai
+        />
             </div>
           ))}
         </Slider>

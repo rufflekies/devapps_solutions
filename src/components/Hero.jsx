@@ -13,11 +13,15 @@ const Hero = () => {
                 {/* Image above buttons in mobile view */}
                 <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 lg:hidden">
                     <div className="flex justify-center pt-2 "> {/* Adjust padding for mobile */}
-                        <img 
-                            src="/hero.png" 
-                            alt="Mobile Mockup" 
-                            className="w-2/3 h-auto object-contain animate-floating"
-                        />
+                    <img 
+  src="/hero.png" 
+  alt="Mobile Mockup" 
+  className="w-3/4 h-auto object-contain animate-floating lg:max-w-full"
+  width="400" // contoh ukuran gambar
+  height="500" 
+  loading="lazy" // contoh ukuran gambar
+/>
+
                     </div>
 
                     {/* Move description below image in mobile view */}

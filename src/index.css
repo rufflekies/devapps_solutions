@@ -24,18 +24,25 @@ html, body {
 
 /* General dark mode styles */
 body.dark {
-    background-color: #121212; /* Dark background */
-    color: #ffffff; /* Light text color */
-}
+    background-color: #2c2c2c;
+    color: #f5f5f5;
+  }
 
 /* Specific styles for dark mode */
 body.dark .bg-white {
     background-color: #1f1f1f; /* Dark background for elements */
 }
 
+button {
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 /* Update gray-100 to gray-800 in dark mode */
 body.dark .bg-gray-100 {
-    background-color: #4b5563; /* Tailwind gray-800 */
+    background-color: #2c2c2c; /* Tailwind gray-800 */
 }
 
 /* Update text color for links and other elements in dark mode */

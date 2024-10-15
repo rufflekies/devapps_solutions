@@ -28,7 +28,7 @@ const Hero = () => {
                     {/* Updated button layout for mobile */}
                     <div className="flex flex-col space-y-4 mt-4">
                         <div className="flex flex-row space-x-4">
-                            <a href="#" className="transition-transform transform hover:scale-105 font-montserrat flex-1 px-6 py-3 bg-indigo-600 text-white rounded-md font-semibold hover:bg-indigo-700">
+                            <a href="#" className="transition-transform transform hover:scale-105 font-montserrat flex-1 px-6 py-3 bg-indigo-600 text-center text-white rounded-md font-semibold hover:bg-indigo-700">
                                 Penawaran
                             </a>
                             <a href="#" className="transition-transform transform hover:scale-105 bg-white shadow-lg font-montserrat text-center flex-1 px-6 py-3 rounded-md font-semibold hover:bg-indigo-700">

@@ -17,7 +17,7 @@ const About = () => {
 
           {/* Right side with content */}
           <div className="w-full md:w-1/2 p-8">
-            <h2 className="text-3xl mt-8 md:text-4xl font-bold mb-4">Siapa Kami</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 lg:mt-8">Siapa Kami</h2>
             <p className="text-base md:text-lg mb-6">
             "DevApps Solutions berdiri untuk mewujudkan ide inovatif Anda menjadi aplikasi mobile. Dengan fokus pada pengembangan melalui Android Studio, tim kami yang berpengalaman siap memberikan solusi terbaik untuk kebutuhan Anda."
             </p>

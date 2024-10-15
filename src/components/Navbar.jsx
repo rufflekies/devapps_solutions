@@ -107,7 +107,7 @@ const Navbar = () => {
 
       {/* Mobile View: Instagram-style Bottom Navigation Bar */}
       <div
-        className="fixed bottom-0 left-0 w-full z-50 bg-white shadow-top py-3 flex justify-around items-center"
+        className="fixed bottom-0 left-0 w-full z-50 bg-white shadow-top py-3 flex justify-around items-center lg:hidden"
         style={{ fontFamily: "Montserrat, sans-serif" }}
       >
         {/* Navigation Icons for Mobile */}

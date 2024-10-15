@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <section id="hero" className="bg-gray-100 relative overflow-hidden flex flex-col lg:flex-row h-screen">
+        <section id="hero" className="bg-gray-100 relative overflow-hidden flex flex-col lg:flex-row py-6">
             {/* Left Content */}
             <div className="flex-1 flex flex-col justify-center px-6 lg:p-24">
                 {/* Title with mobile-specific padding and centered text */}

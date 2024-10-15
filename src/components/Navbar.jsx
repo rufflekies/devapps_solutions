@@ -1,6 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { AiOutlineHome, AiOutlineInfoCircle, AiOutlineAppstore, AiOutlineFile, AiOutlineMail, AiOutlineArrowUp } from 'react-icons/ai'; 
-import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
+import React, { useState, useEffect } from "react";
+import {
+  AiOutlineHome,
+  AiOutlineInfoCircle,
+  AiOutlineAppstore,
+  AiOutlineFile,
+  AiOutlineMail,
+  AiOutlineArrowUp,
+} from "react-icons/ai";
+import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,18 +21,18 @@ const Navbar = () => {
       setShowScrollToTop(scrollTop > 300); // Menampilkan tombol jika scroll lebih dari 300px
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   useEffect(() => {
     if (isDarkMode) {
-      document.body.classList.add('dark');
+      document.body.classList.add("dark");
     } else {
-      document.body.classList.remove('dark');
+      document.body.classList.remove("dark");
     }
   }, [isDarkMode]);
 
@@ -37,7 +44,7 @@ const Navbar = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -46,23 +53,46 @@ const Navbar = () => {
       {/* Desktop View: Bubble Navigation at the Top */}
       <div
         className={`border border-white hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 w-auto z-50 transition-all duration-300 ease-in-out
-          ${isScrolled ? 'bg-white shadow-lg rounded-full py-3 px-6' : 'bg-white py-3 px-6 rounded-full'}`}
-        style={{ marginTop: '1rem', fontFamily: 'Montserrat, sans-serif' }}
+          ${isScrolled
+            ? "bg-white shadow-lg rounded-full py-3 px-6"
+            : "bg-white py-3 px-6 rounded-full"
+          }`}
+        style={{ marginTop: "1rem", fontFamily: "Montserrat, sans-serif" }}
       >
         {/* Navigation Links for Desktop */}
-        <a href="#home" className={`hover:text-blue-500 ${isScrolled || isDarkMode ? 'text-blue-500' : 'text-black'} mx-4 font-semibold`}>
+        <a
+          href="#home"
+          className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"
+            } mx-4 font-semibold`}
+        >
           Home
         </a>
-        <a href="#about" className={`hover:text-blue-500 ${isScrolled || isDarkMode ? 'text-blue-500' : 'text-black'} mx-4 font-semibold`}>
+        <a
+          href="#about"
+          className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"
+            } mx-4 font-semibold`}
+        >
           About
         </a>
-        <a href="#services" className={`hover:text-blue-500 ${isScrolled || isDarkMode ? 'text-blue-500' : 'text-black'} mx-4 font-semibold`}>
+        <a
+          href="#services"
+          className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"
+            } mx-4 font-semibold`}
+        >
           Services
         </a>
-        <a href="#pricelist" className={`hover:text-blue-500 ${isScrolled || isDarkMode ? 'text-blue-500' : 'text-black'} mx-4 font-semibold`}>
+        <a
+          href="#pricelist"
+          className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"
+            } mx-4 font-semibold`}
+        >
           PriceList
         </a>
-        <a href="#contact" className={`hover:text-blue-500 ${isScrolled || isDarkMode ? 'text-blue-500' : 'text-black'} mx-4 font-semibold`}>
+        <a
+          href="#contact"
+          className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"
+            } mx-4 font-semibold`}
+        >
           Contact
         </a>
 
@@ -71,33 +101,49 @@ const Navbar = () => {
           onClick={toggleDarkMode}
           className="ml-4 bg-white rounded-full flex items-center justify-center"
         >
-          {isDarkMode ? (
-            <BsFillSunFill />
-          ) : (
-            <BsFillMoonFill />
-          )}
+          {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
         </button>
       </div>
 
-      {/* Mobile View: Bubble Navigation at the Bottom */}
+      {/* Mobile View: Instagram-style Bottom Navigation Bar */}
       <div
-        className={`flex md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 w-auto z-50 bg-white shadow-lg rounded-full p-4 justify-around space-x-6`}
-        style={{ marginBottom: '1rem', fontFamily: 'Montserrat, sans-serif' }}
+        className="fixed bottom-0 left-0 w-full z-50 bg-white shadow-top py-3 flex justify-around items-center"
+        style={{ fontFamily: "Montserrat, sans-serif" }}
       >
         {/* Navigation Icons for Mobile */}
-        <a href="#home" className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? 'text-blue-500' : 'text-black'}`}>
+        <a
+          href="#home"
+          className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? "text-blue-500" : "text-black"
+            }`}
+        >
           <AiOutlineHome className="text-2xl" />
         </a>
-        <a href="#about" className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? 'text-blue-500' : 'text-black'}`}>
+        <a
+          href="#about"
+          className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? "text-blue-500" : "text-black"
+            }`}
+        >
           <AiOutlineInfoCircle className="text-2xl" />
         </a>
-        <a href="#services" className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? 'text-blue-500' : 'text-black'}`}>
+        <a
+          href="#services"
+          className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? "text-blue-500" : "text-black"
+            }`}
+        >
           <AiOutlineAppstore className="text-2xl" />
         </a>
-        <a href="#pricelist" className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? 'text-blue-500' : 'text-black'}`}>
+        <a
+          href="#pricelist"
+          className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? "text-blue-500" : "text-black"
+            }`}
+        >
           <AiOutlineFile className="text-2xl" />
         </a>
-        <a href="#contact" className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? 'text-blue-500' : 'text-black'}`}>
+        <a
+          href="#contact"
+          className={`flex flex-col items-center hover:text-blue-500 ${isScrolled ? "text-blue-500" : "text-black"
+            }`}
+        >
           <AiOutlineMail className="text-2xl" />
         </a>
       </div>
@@ -107,11 +153,7 @@ const Navbar = () => {
         onClick={toggleDarkMode}
         className="fixed top-4 right-4 md:hidden bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-2xl z-50"
       >
-        {isDarkMode ? (
-          <BsFillSunFill />
-        ) : (
-          <BsFillMoonFill />
-        )}
+        {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
       </button>
 
       {/* Scroll to Top Button */}

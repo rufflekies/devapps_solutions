@@ -1,7 +1,15 @@
 import React from "react";
-import { Link } from "react-scroll"; // Import Link dari react-scroll
+import { scroller } from "react-scroll"; // Gunakan scroller dari react-scroll
 
 const Hero = () => {
+  // Fungsi untuk menangani smooth scroll
+  const scrollToSection = (section) => {
+    scroller.scrollTo(section, {
+      smooth: true,
+      duration: 500,
+    });
+  };
+
   return (
     <section
       id="hero"
@@ -32,22 +40,26 @@ const Hero = () => {
 
           <div className="flex flex-col space-y-4 mt-4">
             <div className="flex flex-row space-x-4">
-              <Link
-                to="pricelist" // Nama id dari section yang akan di-scroll
-                smooth={true} // Aktifkan scroll halus
-                duration={500} // Durasi scroll dalam milidetik
+              <a
+                href="#pricelist" // Tambahkan href yang valid untuk SEO
+                onClick={(e) => {
+                  e.preventDefault(); // Mencegah aksi default anchor
+                  scrollToSection("pricelist"); // Fungsi smooth scroll
+                }}
                 className="transition-transform transform hover:scale-105 font-montserrat flex-1 px-6 py-3 bg-indigo-600 text-center text-white rounded-md font-semibold hover:bg-indigo-700"
               >
                 Penawaran
-              </Link>
-              <Link
-                to="contact" // Nama id dari section yang akan di-scroll
-                smooth={true} // Aktifkan scroll halus
-                duration={500} // Durasi scroll dalam milidetik
+              </a>
+              <a
+                href="#contact" // Tambahkan href yang valid untuk SEO
+                onClick={(e) => {
+                  e.preventDefault(); // Mencegah aksi default anchor
+                  scrollToSection("contact"); // Fungsi smooth scroll
+                }}
                 className="transition-transform transform hover:scale-105 bg-white shadow-lg font-montserrat text-center flex-1 px-6 py-3 rounded-md font-semibold hover:bg-indigo-700"
               >
                 Hubungi
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -60,22 +72,26 @@ const Hero = () => {
 
         {/* Tombol untuk Desktop */}
         <div className="mt-8 flex-col sm:flex-row sm:space-x-4 hidden lg:flex">
-          <Link
-            to="pricelist" // Nama id dari section yang akan di-scroll
-            smooth={true} // Aktifkan scroll halus
-            duration={500} // Durasi scroll dalam milidetik
+          <a
+            href="#pricelist" // Tambahkan href yang valid untuk SEO
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("pricelist");
+            }}
             className="transition-transform transform hover:scale-105 font-montserrat px-6 py-3 bg-indigo-600 text-white rounded-md font-semibold hover:bg-indigo-700"
           >
             Penawaran
-          </Link>
-          <Link
-            to="contact" // Nama id dari section yang akan di-scroll
-            smooth={true} // Aktifkan scroll halus
-            duration={500} // Durasi scroll dalam milidetik
+          </a>
+          <a
+            href="#contact" // Tambahkan href yang valid untuk SEO
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("contact");
+            }}
             className="transition-transform transform hover:scale-105 font-montserrat text-center bg-white px-6 py-3 shadow-lg rounded-md font-semibold hover:bg-white"
           >
             Hubungi
-          </Link>
+          </a>
         </div>
       </div>
 

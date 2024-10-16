@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, animateScroll as scroll } from "react-scroll"; // Import dari react-scroll
 import {
   AiOutlineHome,
   AiOutlineInfoCircle,
@@ -62,9 +63,9 @@ const Navbar = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    scroll.scrollToTop({
+      duration: 500,
+      smooth: "easeInOutQuad",
     });
   };
 
@@ -74,27 +75,27 @@ const Navbar = () => {
     <nav className="relative">
       {/* Desktop View: Bubble Navigation at the Top */}
       <div
-        className={`border border-white hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 w-auto z-1000 transition-all duration-300 ease-in-out
-          ${isScrolled ? "bg-white shadow-lg rounded-full py-3 px-6" : "bg-white py-3 px-6 rounded-full"}`}
+        className={`border ${isDarkMode ? "border-transparent" : "border-white"} hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 w-auto z-1000 transition-all duration-300 ease-in-out
+          ${isScrolled ? "bg-white shadow-lg rounded-full py-3 px-6" : "bg-white py-3 px-6 rounded-full"}
+        `}
         style={{
           marginTop: "1rem",
           fontFamily: "Montserrat, sans-serif",
           zIndex: 1000,
         }}
       >
-        {["Home", "About", "Services", "PriceList", "Contact"].map((text, index) => {
-          const section = text === "Home" ? "#hero" : `#${text.toLowerCase()}`;
-          return (
-            <a
-              key={text}
-              href={section}
-              className={`hover:text-blue-500 ${isActive(section) ? "text-blue-500" : "text-black"} mx-4 font-semibold`}
-              aria-label={`Navigasi ke bagian ${text}`} // Menambahkan teks alternatif untuk aksesibilitas
-            >
-              {text}
-            </a>
-          );
-        })}
+        {["Home", "About", "Services", "PriceList", "Contact"].map((text) => (
+          <Link
+            key={text}
+            to={text.toLowerCase()}
+            smooth={true}
+            duration={500}
+            className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"} mx-4 font-semibold`}
+            aria-label={`Navigasi ke bagian ${text}`} // Menambahkan teks alternatif untuk aksesibilitas
+          >
+            {text}
+          </Link>
+        ))}
 
         {/* Dark Mode Toggle Button for Desktop */}
         <button
@@ -106,9 +107,9 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile View: Instagram-style Bottom Navigation Bar without text labels */}
+      {/* Mobile View: Instagram-style Bottom Navigation Bar */}
       <div
-        className="fixed bottom-0 left-0 w-full rounded-3xl bg-white shadow-top py-3 flex justify-around items-center lg:hidden transition-all duration-300 ease-in-out"
+        className={`fixed bottom-0 left-0 w-full rounded-3xl bg-white shadow-top py-3 flex justify-around items-center lg:hidden transition-all duration-300 ease-in-out ${isDarkMode ? 'shadow-white' : ''}`}
         style={{
           zIndex: 1000,
           height: "60px",
@@ -122,9 +123,11 @@ const Navbar = () => {
           { section: "#pricelist", icon: <AiOutlineFile />, label: "Harga" },
           { section: "#contact", icon: <AiOutlineMail />, label: "Kontak" },
         ].map(({ section, icon, label }) => (
-          <a
+          <Link
             key={section}
-            href={section}
+            to={section.slice(1)} // Menghilangkan '#' untuk id yang benar
+            smooth={true}
+            duration={500}
             className={`flex flex-col items-center group transition-all duration-300 relative ${isActive(section) ? "text-blue-500" : "text-gray-500"}`}
             aria-label={label} // Tambahkan teks alternatif untuk aksesibilitas
           >
@@ -136,7 +139,7 @@ const Navbar = () => {
             {React.cloneElement(icon, {
               className: `text-2xl ${isActive(section) ? "text-blue-500" : "text-gray-500"}`,
             })}
-          </a>
+          </Link>
         ))}
       </div>
 

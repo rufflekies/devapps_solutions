@@ -75,25 +75,42 @@ const Navbar = () => {
     <nav className="relative">
       {/* Desktop View: Bubble Navigation at the Top */}
       <div
-        className={`border ${isDarkMode ? "border-transparent" : "border-white"} hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 w-auto z-1000 transition-all duration-300 ease-in-out
-          ${isScrolled ? "bg-white shadow-lg rounded-full py-3 px-6" : "bg-white py-3 px-6 rounded-full"}
-        `}
+        className={`hidden md:flex fixed top-4 left-1/2 transform -translate-x-1/2 w-auto z-1000 transition-all duration-300 ease-in-out
+    ${
+      isScrolled
+        ? "bg-white shadow-lg rounded-full py-3 px-6"
+        : "bg-white py-3 px-6 rounded-full"
+    } `} // Tambahkan ini
         style={{
           marginTop: "1rem",
           fontFamily: "Montserrat, sans-serif",
           zIndex: 1000,
         }}
       >
-        {["Home", "About", "Services", "PriceList", "Contact"].map((text) => (
+        {[
+          { section: "#hero", label: "Home" },
+          { section: "#about", label: "About" },
+          { section: "#services", label: "Services" },
+          { section: "#pricelist", label: "PriceList" },
+          { section: "#contact", label: "Contact" },
+        ].map(({ section, label }) => (
           <Link
-            key={text}
-            to={text.toLowerCase()}
+            key={label}
+            to={section.slice(1)} // Menghilangkan '#' agar id benar
             smooth={true}
             duration={500}
-            className={`hover:text-blue-500 ${isScrolled || isDarkMode ? "text-blue-500" : "text-black"} mx-4 font-semibold`}
-            aria-label={`Navigasi ke bagian ${text}`} // Menambahkan teks alternatif untuk aksesibilitas
+            className={`mx-4 font-semibold transition-all duration-300 ${
+              isActive(section)
+                ? isDarkMode
+                  ? "text-white"
+                  : "text-blue-500" // Teks aktif: putih di gelap, biru di terang
+                : isDarkMode
+                ? "text-gray-400"
+                : "text-black" // Teks tidak aktif: abu-abu di gelap, hitam di terang
+            }`}
+            aria-label={`Navigasi ke bagian ${label}`} // Menambahkan teks alternatif untuk aksesibilitas
           >
-            {text}
+            {label}
           </Link>
         ))}
 
@@ -101,7 +118,9 @@ const Navbar = () => {
         <button
           onClick={toggleDarkMode}
           className="ml-4 bg-white rounded-full flex items-center justify-center"
-          aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+          aria-label={
+            isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+          }
         >
           {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
         </button>
@@ -109,7 +128,9 @@ const Navbar = () => {
 
       {/* Mobile View: Instagram-style Bottom Navigation Bar */}
       <div
-        className={`fixed bottom-0 left-0 w-full rounded-3xl bg-white shadow-top py-3 flex justify-around items-center lg:hidden transition-all duration-300 ease-in-out ${isDarkMode ? 'shadow-white' : ''}`}
+        className={`fixed bottom-0 left-0 w-full rounded-3xl bg-white shadow-top py-3 flex justify-around items-center lg:hidden transition-all duration-300 ease-in-out ${
+          isDarkMode ? "shadow-white" : ""
+        }`}
         style={{
           zIndex: 1000,
           height: "60px",
@@ -118,8 +139,16 @@ const Navbar = () => {
       >
         {[
           { section: "#hero", icon: <AiOutlineHome />, label: "Beranda" },
-          { section: "#about", icon: <AiOutlineInfoCircle />, label: "Tentang Kami" },
-          { section: "#services", icon: <AiOutlineAppstore />, label: "Layanan" },
+          {
+            section: "#about",
+            icon: <AiOutlineInfoCircle />,
+            label: "Tentang Kami",
+          },
+          {
+            section: "#services",
+            icon: <AiOutlineAppstore />,
+            label: "Layanan",
+          },
           { section: "#pricelist", icon: <AiOutlineFile />, label: "Harga" },
           { section: "#contact", icon: <AiOutlineMail />, label: "Kontak" },
         ].map(({ section, icon, label }) => (
@@ -128,16 +157,22 @@ const Navbar = () => {
             to={section.slice(1)} // Menghilangkan '#' untuk id yang benar
             smooth={true}
             duration={500}
-            className={`flex flex-col items-center group transition-all duration-300 relative ${isActive(section) ? "text-blue-500" : "text-gray-500"}`}
+            className={`flex flex-col items-center group transition-all duration-300 relative ${
+              isActive(section) ? "text-blue-500" : "text-gray-500"
+            }`}
             aria-label={label} // Tambahkan teks alternatif untuk aksesibilitas
           >
             {isActive(section) && (
               <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-                {React.cloneElement(icon, { className: "text-2xl transition-transform duration-300" })}
+                {React.cloneElement(icon, {
+                  className: "text-2xl transition-transform duration-300",
+                })}
               </div>
             )}
             {React.cloneElement(icon, {
-              className: `text-2xl ${isActive(section) ? "text-blue-500" : "text-gray-500"}`,
+              className: `text-2xl ${
+                isActive(section) ? "text-blue-500" : "text-gray-500"
+              }`,
             })}
           </Link>
         ))}

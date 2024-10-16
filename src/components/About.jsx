@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 
 const About = () => {
   const imgRef = useRef(null); // Reference untuk gambar
+  const [startCount, setStartCount] = useState(false); // State untuk memulai penghitung
 
   useEffect(() => {
     const imgObserver = new IntersectionObserver((entries) => {
@@ -23,6 +24,30 @@ const About = () => {
     return () => {
       if (imgRef.current) {
         imgObserver.unobserve(imgRef.current); // Menghentikan pengamatan saat komponen dibongkar
+      }
+    };
+  }, []);
+
+  // Observer untuk section About
+  useEffect(() => {
+    const section = document.getElementById("about");
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setStartCount(true); // Memulai penghitung saat section terlihat
+        } else {
+          setStartCount(false); // Reset state saat section tidak terlihat
+        }
+      });
+    });
+
+    if (section) {
+      sectionObserver.observe(section); // Memulai pengamatan pada section
+    }
+
+    return () => {
+      if (section) {
+        sectionObserver.unobserve(section); // Menghentikan pengamatan saat komponen dibongkar
       }
     };
   }, []);
@@ -56,25 +81,25 @@ const About = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div className="flex flex-col items-center">
                 <h3 className="text-2xl md:text-3xl font-bold">
-                  <CountUp end={3} duration={1} />+
+                  {startCount ? <CountUp end={3} duration={2} /> : "0"}+
                 </h3>
                 <p className="text-xs md:text-sm">Tahun Beroperasi</p>
               </div>
               <div className="flex flex-col items-center">
                 <h3 className="text-2xl md:text-3xl font-bold">
-                  <CountUp end={10} duration={1} />+
+                  {startCount ? <CountUp end={10} duration={2} /> : "0"}+
                 </h3>
                 <p className="text-xs md:text-sm">Klien Puas</p>
               </div>
               <div className="flex flex-col items-center">
                 <h3 className="text-2xl md:text-3xl font-bold">
-                  <CountUp end={30} duration={1} />+
+                  {startCount ? <CountUp end={30} duration={2} /> : "0"}+
                 </h3>
                 <p className="text-xs md:text-sm">Proyek</p>
               </div>
               <div className="flex flex-col items-center">
                 <h3 className="text-2xl md:text-3xl font-bold">
-                  <CountUp end={20} duration={1} />+
+                  {startCount ? <CountUp end={20} duration={2} /> : "0"}+
                 </h3>
                 <p className="text-xs md:text-sm">Ahli</p>
               </div>

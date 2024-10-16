@@ -17,6 +17,11 @@
 }
 
 /* ... Lanjutkan untuk berat/font style lainnya ... */
+/* styles.css atau file CSS lainnya */
+.shadow-white {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.5);
+}
+
 
 body {
   font-family: 'Montserrat', sans-serif;

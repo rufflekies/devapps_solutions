@@ -46,7 +46,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Deskripsi untuk desktop */}
         <p className="mt-6 text-lg max-w-md font-montserrat hidden lg:block">
           Kami adalah mitra terpercaya dalam mengembangkan aplikasi mobile
@@ -63,7 +63,7 @@ const Hero = () => {
           </a>
           <a
             href="#"
-            className="transition-transform transform hover:scale-105 font-montserrat text-center bg-white px-6 py-3 border border-white shadow-lg rounded-md font-semibold hover:bg-white hover:text-black"
+            className="transition-transform transform hover:scale-105 font-montserrat text-center bg-white px-6 py-3 shadow-lg rounded-md font-semibold hover:bg-white"
           >
             Hubungi
           </a>

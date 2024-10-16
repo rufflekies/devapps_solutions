@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 
 const Pricelist = () => {
@@ -43,8 +43,33 @@ const Pricelist = () => {
     },
   ];
 
+  const [startCount, setStartCount] = useState(false); // State untuk memulai penghitung
+  const pricingRef = useRef(null); // Reference untuk section Pricelist
+
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setStartCount(true); // Memulai penghitung saat section terlihat
+        } else {
+          setStartCount(false); // Reset state saat section tidak terlihat
+        }
+      });
+    });
+
+    if (pricingRef.current) {
+      sectionObserver.observe(pricingRef.current); // Memulai pengamatan pada section Pricelist
+    }
+
+    return () => {
+      if (pricingRef.current) {
+        sectionObserver.unobserve(pricingRef.current); // Menghentikan pengamatan saat komponen dibongkar
+      }
+    };
+  }, []);
+
   return (
-    <div id="pricelist" className="bg-gray-100 pt-10 font-montserrat">
+    <div id="pricelist" ref={pricingRef} className="bg-gray-100 pt-10 font-montserrat">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center">Paket Harga</h2>
 
@@ -54,7 +79,7 @@ const Pricelist = () => {
             {pricingData.map((plan, index) => (
               <div
                 key={index}
-                className="snap-center bg-white border rounded-3xl p-6 shadow-md transition-transform transform hover:scale-105 flex-shrink-0 w-80 flex flex-col"
+                className="snap-center bg-white rounded-3xl p-6 shadow-md transition-transform transform hover:scale-105 flex-shrink-0 w-80 flex flex-col"
               >
                 <div className="flex-grow">
                   <h3 className="text-xl font-semibold text-center">
@@ -62,13 +87,17 @@ const Pricelist = () => {
                   </h3>
                   <div className="text-center">
                     <span className="text-3xl font-bold">
-                      <CountUp
-                        start={0}
-                        end={plan.price}
-                        duration={1}
-                        separator="."
-                        prefix="Rp "
-                      />
+                      {startCount ? (
+                        <CountUp
+                          start={0}
+                          end={plan.price}
+                          duration={2}
+                          separator="."
+                          prefix="Rp "
+                        />
+                      ) : (
+                        "Rp 0"
+                      )}
                     </span>
                   </div>
                   <p className="text-lg font-normal mb-6 text-center">
@@ -80,7 +109,7 @@ const Pricelist = () => {
                     ))}
                   </ul>
                 </div>
-                <button 
+                <button
                   className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full mt-4"
                   aria-label={`Pilih paket ${plan.plan}`}
                 >
@@ -96,7 +125,7 @@ const Pricelist = () => {
           {pricingData.map((plan, index) => (
             <div
               key={index}
-              className="flex flex-col bg-white border rounded-3xl p-6 shadow-md transition-transform transform hover:scale-105"
+              className="flex flex-col bg-white rounded-3xl p-6 shadow-md transition-transform transform hover:scale-105"
             >
               <div className="flex-grow">
                 <h3 className="text-xl font-semibold mb-4 text-center">
@@ -104,13 +133,17 @@ const Pricelist = () => {
                 </h3>
                 <div className="text-center mb-2">
                   <span className="text-3xl font-bold">
-                    <CountUp
-                      start={0}
-                      end={plan.price}
-                      duration={1}
-                      separator="."
-                      prefix="Rp "
-                    />
+                    {startCount ? (
+                      <CountUp
+                        start={0}
+                        end={plan.price}
+                        duration={2}
+                        separator="."
+                        prefix="Rp "
+                      />
+                    ) : (
+                      "Rp 0"
+                    )}
                   </span>
                 </div>
                 <p className="text-lg font-normal text-center mb-6">/proyek</p>
@@ -120,7 +153,7 @@ const Pricelist = () => {
                   ))}
                 </ul>
               </div>
-              <button 
+              <button
                 className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full"
                 aria-label={`Pilih paket ${plan.plan}`}
               >

@@ -138,49 +138,51 @@ const Navbar = () => {
           paddingBottom: "30px",
         }}
       >
-        {[
-          { section: "#hero", icon: <GoHomeFill />, label: "Beranda" },
-          {
-            section: "#about",
-            icon: <TbInfoSquareRoundedFilled />,
-            label: "Tentang Kami",
-          },
-          {
-            section: "#services",
-            icon: <PiAndroidLogoFill />,
-            label: "Layanan",
-          },
-          { section: "#pricelist", icon: <IoIosPricetag />, label: "Harga" },
-          {
-            section: "#contact",
-            icon: <BsFillTelephoneFill />,
-            label: "Kontak",
-          },
-        ].map(({ section, icon, label }) => (
-          <Link
-            key={section}
-            to={section.slice(1)} // Menghilangkan '#' untuk id yang benar
-            smooth={true}
-            duration={500}
-            className={`flex flex-col items-center group transition-all duration-300 relative ${
-              isActive(section) ? "text-blue-500" : "text-gray-500"
-            }`}
-            aria-label={label} // Tambahkan teks alternatif untuk aksesibilitas
-          >
-            {isActive(section) && (
-              <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
-                {React.cloneElement(icon, {
-                  className: "text-2xl transition-transform duration-300",
-                })}
-              </div>
-            )}
-            {React.cloneElement(icon, {
-              className: `text-2xl ${
-                isActive(section) ? "text-blue-500" : "text-gray-500"
-              }`,
-            })}
-          </Link>
-        ))}
+{[
+  { section: "#hero", icon: <GoHomeFill />, label: "Beranda" },
+  {
+    section: "#about",
+    icon: <TbInfoSquareRoundedFilled />,
+    label: "Tentang Kami",
+  },
+  {
+    section: "#services",
+    icon: <PiAndroidLogoFill />,
+    label: "Layanan",
+  },
+  { section: "#pricelist", icon: <IoIosPricetag />, label: "Harga" },
+  {
+    section: "#contact",
+    icon: <BsFillTelephoneFill />,
+    label: "Kontak",
+  },
+].map(({ section, icon, label }) => (
+  <Link
+    key={section}
+    to={section.slice(1)} // Untuk smooth scroll menggunakan react-scroll
+    href={section} // Tambahkan href untuk keperluan SEO
+    smooth={true}
+    duration={500}
+    className={`flex flex-col items-center group transition-all duration-300 relative ${
+      isActive(section) ? "text-blue-500" : "text-gray-500"
+    }`}
+    aria-label={label} // Aksesibilitas
+  >
+    {isActive(section) && (
+      <div className="rounded-full bg-white p-2 w-16 h-16 flex items-center justify-center absolute -top-5 transform scale-110">
+        {React.cloneElement(icon, {
+          className: "text-2xl transition-transform duration-300",
+        })}
+      </div>
+    )}
+    {React.cloneElement(icon, {
+      className: `text-2xl ${
+        isActive(section) ? "text-blue-500" : "text-gray-500"
+      }`,
+    })}
+  </Link>
+))}
+
       </div>
 
       {/* Floating Dark Mode Toggle Button for Mobile */}

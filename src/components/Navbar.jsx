@@ -82,8 +82,8 @@ const Navbar = () => {
           zIndex: 1000,
         }}
       >
-        {["Hero", "About", "Services", "PriceList", "Contact"].map((text, index) => {
-          const section = text === "Hero" ? "#hero" : `#${text.toLowerCase()}`;
+        {["Home", "About", "Services", "PriceList", "Contact"].map((text, index) => {
+          const section = text === "Home" ? "#hero" : `#${text.toLowerCase()}`;
           return (
             <a
               key={text}

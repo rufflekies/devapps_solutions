@@ -28,7 +28,7 @@ const Services = () => {
   return (
     <section id="services" className="bg-gray-100 py-10">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8 font-montserrat">
+        <h2 className="pt-14 text-4xl font-bold text-center mb-8 font-montserrat">
           Layanan Kami
         </h2>
         {/* Flex scroll for mobile, grid for larger screens */}

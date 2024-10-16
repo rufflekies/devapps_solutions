@@ -43,17 +43,17 @@ const Clients = () => {
   };
 
   return (
-    <section id="clients" className="bg-gray-100 py-12">
+    <section id="clients" className="bg-gray-100">
       <div className="max-w-6xl mx-auto text-center mb-8">
         <h1 className="text-4xl font-bold">Klien kami</h1>
-        <p className="p-2 text-xl">Kami memiliki klien yang terpercaya.</p>
+        <p className="px-2 text-xl">Kami memiliki klien yang terpercaya.</p>
       </div>
 
       {/* Infinite Moving Logo Slider */}
       <div className="w-full">
         <Slider {...settings}>
           {logosForSlider.map((logo) => (
-            <div key={logo.id} className="p-2">
+            <div key={logo.id} className="px-2">
               {" "}
               {/* Adjusted padding for tighter spacing */}
               <img

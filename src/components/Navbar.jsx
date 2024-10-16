@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, animateScroll as scroll } from "react-scroll"; // Import dari react-scroll
 import {
-  AiOutlineHome,
   AiOutlineInfoCircle,
   AiOutlineAppstore,
   AiOutlineFile,
@@ -9,6 +8,16 @@ import {
   AiOutlineArrowUp,
 } from "react-icons/ai";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+import { GoHomeFill} from "react-icons/go";
+import { TbInfoSquareRoundedFilled } from "react-icons/tb";
+import { PiAndroidLogoFill } from "react-icons/pi";
+import { IoIosPricetag } from "react-icons/io";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { TiArrowUpThick } from "react-icons/ti";
+import { PiMoonFill } from "react-icons/pi";
+import { HiSun } from "react-icons/hi";
+
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -138,19 +147,19 @@ const Navbar = () => {
         }}
       >
         {[
-          { section: "#hero", icon: <AiOutlineHome />, label: "Beranda" },
+          { section: "#hero", icon: <GoHomeFill />, label: "Beranda" },
           {
             section: "#about",
-            icon: <AiOutlineInfoCircle />,
+            icon: <TbInfoSquareRoundedFilled  />,
             label: "Tentang Kami",
           },
           {
             section: "#services",
-            icon: <AiOutlineAppstore />,
+            icon: <PiAndroidLogoFill />,
             label: "Layanan",
           },
-          { section: "#pricelist", icon: <AiOutlineFile />, label: "Harga" },
-          { section: "#contact", icon: <AiOutlineMail />, label: "Kontak" },
+          { section: "#pricelist", icon: <IoIosPricetag   />, label: "Harga" },
+          { section: "#contact", icon: <BsFillTelephoneFill   />, label: "Kontak" },
         ].map(({ section, icon, label }) => (
           <Link
             key={section}
@@ -184,7 +193,7 @@ const Navbar = () => {
         className="fixed top-4 right-4 md:hidden bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50"
         aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
       >
-        {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
+        {isDarkMode ? <HiSun /> : <PiMoonFill />}
       </button>
 
       {/* Scroll to Top Button */}
@@ -194,7 +203,7 @@ const Navbar = () => {
           className="fixed bottom-20 right-4 bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50 transition-all duration-300 ease-in-out"
           aria-label="Scroll to top"
         >
-          <AiOutlineArrowUp />
+          <TiArrowUpThick  />
         </button>
       )}
     </nav>

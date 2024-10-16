@@ -5,21 +5,20 @@ const Pricelist = () => {
   const pricingData = [
     {
       plan: "Aplikasi Dasar",
-      price: 5000000,
+      price: 2500000,
       features: [
-        "Satu Platform (Android atau iOS)",
         "Desain UI/UX Sederhana",
         "Maksimal 5 Halaman",
         "Fitur Sederhana (misalnya halaman statis)",
         "2 Revisi",
         "Dukungan Dasar (via email)",
       ],
+      waLink: "https://api.whatsapp.com/send?phone=62895330271587&text=Silahkan%20Lengkapi%20Detail%20Pembelian%3A%0A%0A*Jenis*%20%3A%20%201.%20*Aplikasi%20Dasar*%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%202.%20~Aplikasi%20Standar~%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%203.%20~Aplikasi%20Premium~%0A*Email*%20%3A%20%0A*Pembayaran*%20%3A%20%0A*Note%20Tambahan*%20%3A", // Link WhatsApp untuk paket ini
     },
     {
       plan: "Aplikasi Standar",
-      price: 15000000,
+      price: 5000000,
       features: [
-        "Cross-Platform (Android & iOS)",
         "Desain UI/UX Kustom",
         "Maksimal 10 Halaman",
         "Fitur Standar (misalnya login, integrasi database)",
@@ -27,43 +26,44 @@ const Pricelist = () => {
         "3 Revisi",
         "Dukungan Standar (via email & chat)",
       ],
+      waLink: "https://api.whatsapp.com/send?phone=62895330271587&text=Silahkan%20Lengkapi%20Detail%20Pembelian%3A%0A%0A*Jenis*%20%3A%20%201.%20~Aplikasi%20Dasar~%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%202.%20*Aplikasi%20Standar*%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%203.%20~Aplikasi%20Premium~%0A*Email*%20%3A%20%0A*Pembayaran*%20%3A%20%0A*Note%20Tambahan*%20%3A", // Link WhatsApp untuk paket ini
     },
     {
       plan: "Aplikasi Premium",
-      price: 30000000,
+      price: 7500000,
       features: [
-        "Cross-Platform (Android & iOS)",
         "Desain UI/UX Lanjutan",
         "Halaman Tanpa Batas",
         "Fitur Lanjutan (misalnya chat real-time, notifikasi push)",
-        "Integrasi API & Pihak Ketiga Lengkap",
+        "Integrasi API & Pihak Ketiga",
         "5 Revisi",
         "Dukungan Prioritas (24/7 support & maintenance)",
       ],
+      waLink: "https://api.whatsapp.com/send?phone=62895330271587&text=Silahkan%20Lengkapi%20Detail%20Pembelian%3A%0A%0A*Jenis*%20%3A%20%201.%20~Aplikasi%20Dasar~%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%202.%20~Aplikasi%20Standar~%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%203.%20*Aplikasi%20Premium*%0A*Email*%20%3A%20%0A*Pembayaran*%20%3A%20%0A*Note%20Tambahan*%20%3A", // Link WhatsApp untuk paket ini
     },
   ];
 
-  const [startCount, setStartCount] = useState(false); // State untuk memulai penghitung
-  const pricingRef = useRef(null); // Reference untuk section Pricelist
+  const [startCount, setStartCount] = useState(false);
+  const pricingRef = useRef(null);
 
   useEffect(() => {
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setStartCount(true); // Memulai penghitung saat section terlihat
+          setStartCount(true);
         } else {
-          setStartCount(false); // Reset state saat section tidak terlihat
+          setStartCount(false);
         }
       });
     });
 
     if (pricingRef.current) {
-      sectionObserver.observe(pricingRef.current); // Memulai pengamatan pada section Pricelist
+      sectionObserver.observe(pricingRef.current);
     }
 
     return () => {
       if (pricingRef.current) {
-        sectionObserver.unobserve(pricingRef.current); // Menghentikan pengamatan saat komponen dibongkar
+        sectionObserver.unobserve(pricingRef.current);
       }
     };
   }, []);
@@ -71,7 +71,7 @@ const Pricelist = () => {
   return (
     <div id="pricelist" ref={pricingRef} className="bg-gray-100 pt-10 font-montserrat">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center">Paket Harga</h2>
+        <h2 className="pt-14 text-4xl font-bold text-center">Paket Harga</h2>
 
         {/* Horizontal scrolling for mobile view only */}
         <div className="overflow-x-auto md:hidden pt-8 scroll-smooth snap-x snap-mandatory">
@@ -109,12 +109,15 @@ const Pricelist = () => {
                     ))}
                   </ul>
                 </div>
-                <button
-                  className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full mt-4"
+                <a
+                  href={plan.waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full mt-4 text-center"
                   aria-label={`Pilih paket ${plan.plan}`}
                 >
                   Pilih Paket
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -153,12 +156,15 @@ const Pricelist = () => {
                   ))}
                 </ul>
               </div>
-              <button
-                className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full"
+              <a
+                href={plan.waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 transition-colors w-full text-center"
                 aria-label={`Pilih paket ${plan.plan}`}
               >
                 Pilih Paket
-              </button>
+              </a>
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { SiGithub } from "react-icons/si";
+import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -36,19 +37,19 @@ const Footer = () => {
               href="https://instagram.com/raflii1i1i"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500"
+              className="text-gray-600"
               aria-label="Instagram DevApps Solutions"
             >
-              <FaInstagram className="h-8 w-8 bg-white rounded-full p-2 shadow-md hover:bg-blue-50" />
+              <AiFillInstagram className="h-12 w-12 bg-white rounded-full p-2 shadow-md hover:text-blue-500" />
             </a>
             <a
-              href="https://www.youtube.com/@raflii1i1i"
+              href="https://github.com/rufflekies"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500"
-              aria-label="YouTube DevApps Solutions"
+              className="text-gray-600"
+              aria-label="Github DevApps Solutions"
             >
-              <FaYoutube className="h-8 w-8 bg-white rounded-full p-2 shadow-md hover:bg-blue-50" />
+              <SiGithub className="h-12 w-12 bg-white rounded-full p-2 shadow-md hover:text-blue-500" />
             </a>
           </div>
         </div>

@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, animateScroll as scroll } from "react-scroll"; // Import dari react-scroll
-import {
-  AiOutlineInfoCircle,
-  AiOutlineAppstore,
-  AiOutlineFile,
-  AiOutlineMail,
-  AiOutlineArrowUp,
-} from "react-icons/ai";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
-import { GoHomeFill} from "react-icons/go";
+import { GoHomeFill } from "react-icons/go";
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 import { PiAndroidLogoFill } from "react-icons/pi";
 import { IoIosPricetag } from "react-icons/io";
@@ -16,8 +9,6 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { TiArrowUpThick } from "react-icons/ti";
 import { PiMoonFill } from "react-icons/pi";
 import { HiSun } from "react-icons/hi";
-
-
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,19 +96,20 @@ const Navbar = () => {
         ].map(({ section, label }) => (
           <Link
             key={label}
-            to={section.slice(1)} // Menghilangkan '#' agar id benar
+            to={section.slice(1)} // Masih menggunakan react-scroll untuk smooth scroll
+            href={section} // Tambahkan href agar bisa di-crawl oleh search engine
             smooth={true}
             duration={500}
             className={`mx-4 font-semibold transition-all duration-300 ${
               isActive(section)
                 ? isDarkMode
                   ? "text-white"
-                  : "text-blue-500" // Teks aktif: putih di gelap, biru di terang
+                  : "text-blue-700"
                 : isDarkMode
                 ? "text-gray-400"
-                : "text-black" // Teks tidak aktif: abu-abu di gelap, hitam di terang
+                : "text-gray-700"
             }`}
-            aria-label={`Navigasi ke bagian ${label}`} // Menambahkan teks alternatif untuk aksesibilitas
+            aria-label={`Navigasi ke bagian ${label}`}
           >
             {label}
           </Link>
@@ -150,7 +142,7 @@ const Navbar = () => {
           { section: "#hero", icon: <GoHomeFill />, label: "Beranda" },
           {
             section: "#about",
-            icon: <TbInfoSquareRoundedFilled  />,
+            icon: <TbInfoSquareRoundedFilled />,
             label: "Tentang Kami",
           },
           {
@@ -158,8 +150,12 @@ const Navbar = () => {
             icon: <PiAndroidLogoFill />,
             label: "Layanan",
           },
-          { section: "#pricelist", icon: <IoIosPricetag   />, label: "Harga" },
-          { section: "#contact", icon: <BsFillTelephoneFill   />, label: "Kontak" },
+          { section: "#pricelist", icon: <IoIosPricetag />, label: "Harga" },
+          {
+            section: "#contact",
+            icon: <BsFillTelephoneFill />,
+            label: "Kontak",
+          },
         ].map(({ section, icon, label }) => (
           <Link
             key={section}
@@ -203,7 +199,7 @@ const Navbar = () => {
           className="fixed bottom-20 right-4 bg-white shadow-lg rounded-full p-3 flex items-center justify-center text-3xl z-50 transition-all duration-300 ease-in-out"
           aria-label="Scroll to top"
         >
-          <TiArrowUpThick  />
+          <TiArrowUpThick />
         </button>
       )}
     </nav>

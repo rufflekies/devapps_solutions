@@ -11,6 +11,8 @@ const Clients = () => {
     { id: 4, src: "/client4.webp", alt: "Client 4" },
     { id: 5, src: "/client5.webp", alt: "Client 5" },
     { id: 6, src: "/client6.webp", alt: "Client 6" },
+    { id: 7, src: "/client7.webp", alt: "Client 7" },
+
   ];
 
   // Duplicate logos to create a smoother infinite effect
@@ -20,7 +22,7 @@ const Clients = () => {
     dots: false,
     infinite: true,
     speed: 3000,
-    slidesToShow: 4,
+    slidesToShow: 7,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0, // Set to 0 for continuous movement

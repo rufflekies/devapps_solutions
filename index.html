@@ -1,21 +1,37 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" /> <!-- Changed to image/png for clarity -->  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/logo.png"> <!-- URL penuh untuk favicon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" href="/hero.webp" as="image">
     
+    <!-- Title and Description -->
     <title>DevApps Solutions</title>
-    
-    <!-- Tambahkan deskripsi meta di sini -->
     <meta name="description" content="DevApps Solutions: Ubah idemu jadi kenyataan dengan layanan pengembangan aplikasi yang profesional dan terpercaya.">
+    
+    <!-- Open Graph Metadata for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DevApps Solutions">
+    <meta property="og:description" content="Ubah idemu jadi kenyataan dengan layanan pengembangan aplikasi yang profesional dan terpercaya.">
+    <meta property="og:url" content="https://devapps-solutions.vercel.app">
+    <meta property="og:image" content="https://devapps-solutions.vercel.app/logo.png">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Logo DevApps Solutions">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DevApps Solutions">
+    <meta name="twitter:description" content="Ubah idemu jadi kenyataan dengan layanan pengembangan aplikasi yang profesional dan terpercaya.">
+    <meta name="twitter:image" content="https://devapps-solutions.vercel.app/logo.png">
+    
   </head>
   <body>
     <div id="root"></div>
     
-    <!-- Use modern script with fallback for older browsers -->
+    <!-- JavaScript Modules -->
     <script type="module" src="/src/main.jsx" defer></script>
-    <script nomodule src="/src/legacy-script.js"></script> <!-- Fallback for browsers that do not support modules -->
+    <script nomodule src="/src/legacy-script.js"></script>
   </body>
 </html>
